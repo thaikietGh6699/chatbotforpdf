@@ -11,7 +11,7 @@ from langchain.llms import HuggingFaceHub
 
 # API key
 # openai_api_key = ""
-huggingfacehub_api_token = "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"
+huggingfacehub_api_token = ""
 
 def get_pdf_text(pdf_docs):
     text = ""
