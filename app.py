@@ -34,7 +34,6 @@ def get_text_chunks(text):
 
 
 def get_vectorstore(text_chunks):
-    # Sử dụng HuggingFaceEmbeddings với API token
     # embeddings = OpenAIEmbeddings(api_key=openai_api_key)    
     embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
     vectorstore = FAISS.from_texts(texts=text_chunks, embedding=embeddings)
@@ -42,7 +41,6 @@ def get_vectorstore(text_chunks):
 
 
 def get_conversation_chain(vectorstore):
-    # Sử dụng HuggingFaceHub với API token
     # llm = ChatOpenAI(api_key=openai_api_key)
     llm = HuggingFaceHub(repo_id="google/flan-t5-large", model_kwargs={"temperature": 0.5, "max_length": 1024}, huggingfacehub_api_token=huggingfacehub_api_token)
 
